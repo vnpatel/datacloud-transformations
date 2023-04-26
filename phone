@@ -1,0 +1,8 @@
+concat(
+    '(',
+    substr(phone__c, 1, 3),
+    ') ',
+    substr(phone__c, 4, 3),
+    '-',
+    substr(phone__c, 7, 4)
+)
