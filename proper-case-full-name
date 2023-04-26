@@ -1,0 +1,46 @@
+concat(
+	case
+		when contains(firstname__c, ' ')
+		then 
+		concat(
+		upper(substr(firstname__c, 1, 1)),
+		substr(firstname__c, 2, (instr(firstname__c,' ')-1)),
+		upper(substr(firstname__c, (instr(firstname__c,' ')+1), 1)),
+		substr(firstname__c, (instr(firstname__c,' ')+2))
+		)
+
+		when contains(firstname__c, '-')
+		then 
+		concat(
+		upper(substr(firstname__c, 1, 1)),
+		substr(firstname__c, 2, (instr(firstname__c,'-')-1)),
+		upper(substr(firstname__c, (instr(firstname__c,'-')+1), 1)),
+		substr(firstname__c, (instr(firstname__c,'-')+2))
+		)
+		else
+		concat(upper(substr(firstname__c, 1, 1)),substr(firstname__c, 2))
+	end,
+	' ',
+
+	case
+		when contains(lastname__c, ' ')
+		then 
+		concat(
+		upper(substr(lastname__c, 1, 1)),
+		substr(lastname__c, 2, (instr(lastname__c,' ')-1)),
+		upper(substr(lastname__c, (instr(lastname__c,' ')+1), 1)),
+		substr(lastname__c, (instr(lastname__c,' ')+2))
+		)
+
+		when contains(lastname__c, '-')
+		then 
+		concat(
+		upper(substr(lastname__c, 1, 1)),
+		substr(lastname__c, 2, (instr(lastname__c,'-')-1)),
+		upper(substr(lastname__c, (instr(lastname__c,'-')+1), 1)),
+		substr(lastname__c, (instr(lastname__c,'-')+2))
+		)
+		else
+		concat(upper(substr(lastname__c, 1, 1)),substr(lastname__c, 2))
+	end
+)
